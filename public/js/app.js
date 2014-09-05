@@ -15,6 +15,7 @@ var App = function () {
 			// call user information, for the given network
 			hello( auth.network ).api( '/me' ).then( function(r){
 				// Inject it into the container
+				console.log(r.name);
 				var label = document.getElementById( "profile_"+ auth.network );
 				if(!label){
 					label = document.createElement('div');
