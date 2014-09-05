@@ -8,6 +8,7 @@ var App = function () {
 
 		hello.init({ 
 			facebook : 701500879937628,
+			twitter : A1W6ADU6674THULpB4IGtA64l
 		},{redirect_uri:'http://socialheatmap.herokuapp.com/'});
 
 		hello.on('auth.login', function(auth){
