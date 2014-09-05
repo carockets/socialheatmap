@@ -2,13 +2,13 @@ var App = function () {
 
 	function helloLogin () {
 
-		var TWITTER_CLIENT_ID = {
-			'meow.com' : 'A1W6ADU6674THULpB4IGtA64l',
-		}[window.location.hostname];
+		//var TWITTER_CLIENT_ID = {
+		//	'meow.com' : 'A1W6ADU6674THULpB4IGtA64l',
+		//}[window.location.hostname];
 
 		hello.init({ 
-			twitter : TWITTER_CLIENT_ID,
-		},{redirect_uri:'redirect.html'});
+			facebook : 701500879937628,
+		},{redirect_uri:'http://socialheatmap.herokuapp.com/'});
 
 		hello.on('auth.login', function(auth){
 		
