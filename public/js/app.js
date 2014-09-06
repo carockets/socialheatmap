@@ -24,7 +24,7 @@ var App = function () {
 					label.id = "profile_"+auth.network;
 					document.getElementById('profile').appendChild(label);
 				}
-				label.innerHTML = '<img src="'+ r.thumbnail +'" /> Hey '+r.name;
+				label.innerHTML = '<img src="'+ r.thumbnail +'" /> Hey '+r.name + ' your screen name is ' + r.screen_name +'(User_Id ' + r.id_str +')';
 			});
 		});
 	}
