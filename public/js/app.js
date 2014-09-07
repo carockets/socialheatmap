@@ -24,114 +24,8 @@ var App = function () {
 				facebook : '701500879937628',
 				twitter : 'A1W6ADU6674THULpB4IGtA64l',
 				oauth_proxy : 'https://auth-server.herokuapp.com/proxy'
-			},{redirect_uri:'http://http://socialheatmap.herokuapp.com//'});
+			},{redirect_uri:'http://socialheatmap.herokuapp.com//'});
 		}
-
-			//hello.on('auth.login', function(auth){
-			
-				// // call user information, for the given network
-				// hello( auth.network ).api( '/me' ).then( function(r){
-				// 	// Inject it into the container
-				// 	var label = document.getElementById( "profile_"+ auth.network );
-				// 	var navBarThumb = document.getElementById( "profile_"+ auth.network + "_thumb");
-				// 	if(!label){
-				// 		label = document.createElement('div');
-				// 		label.id = "profile_"+auth.network;
-				// 		document.getElementById('profile').appendChild(label);
-				// 	}
-				// 	label.innerHTML = '<img src="'+ r.thumbnail +'" /> Hey '+r.name + ' your screen name is ' + r.screen_name +'(User_Id ' + r.id_str +')';
-				// 	navBarThumb.innerHTML = '<img src="'+ r.thumbnail +'" height="35" width="35" class="img-circle" />';
-				// 	$("#btn_twitter").attr('onclick', 'hello("twitter").logout()').attr('title', 'Logout from Twitter');
-				// 	$("#twitter_login").attr('class', 'fa fa-check');
-				// });
-
-				// finally get the latest 20 Tweets from user Timeline
-				// hello(auth.network).api('/statuses/home_timeline.json').then(function(tweets) {
-				// 	// console.log(tweets);
-				// 	//
-				// 	var allTimelineTweetsToShow = allTimelineTweetsToShow || [];
-
-				// 	$.each(tweets, function (index, tweet) {
-				// 		//
-				// 		allTimelineTweetsToShow.push({
-				// 			geolocation: tweet.coordinates,
-				// 			place: tweet.place,
-				// 			pubDate: tweet.created_at,
-				// 			id: tweet.id_str,
-				// 			content: tweet.text,
-				// 			author: tweet.user
-				// 		});
-				// 	});
-				// 	//console.log(allTimelineTweetsToShow);
-				// 	//addTweetMarkers(allTimelineTweetsToShow);
-				// });
-
-				// hello(auth.network).api('/statuses/user_timeline.json').then(function(tweets) {
-				// 	//console.log(tweets);
-				// 	var allUserTweetsToShow = allUserTweetsToShow || [];
-				
-				// 	$.each(tweets, function (index, tweet) {
-				
-				// 		allUserTweetsToShow.push({
-				// 			geolocation: tweet.coordinates,
-				// 			place: tweet.place,
-				// 			pubDate: tweet.created_at,
-				// 			id: tweet.id_str,
-				// 			content: tweet.text,
-				// 			author: tweet.user
-				// 		});
-				// 	});
-				// 	// console.log("allUserTweetsToShow = " + allUserTweetsToShow);
-					
-				// 	$.each(allUserTweetsToShow, function (index, tweet) {
-				// 		if (tweet.geolocation) {
-				// 			
-				// 			map.addMarker({
-				// 				lng: tweet.geolocation.coordinates[0],
-				// 				lat: tweet.geolocation.coordinates[1],
-				// 				title: tweet.author.screen_name,
-				// 				infoWindow: {
-				// 					content: '<h5>@' + tweet.author.screen_name + '</h5><p>' + tweet.content + '</p><p>' + tweet.pubDate + '</p>'
-				// 				}
-				// 			});
-				// 		}
-				// 	})
-				// });
-
-				// hello(auth.network).api('/search/tweets.json?q=%23Apple&count=100').then(function(tweets) {
-				// 	// console.log(tweets.statuses);
-				// 	// 
-				// 	var allSearchTweetsToShow = allSearchTweetsToShow || [];
-
-				// 	$.each(tweets.statuses, function (index, tweet) {
-				// 		
-				// 		allSearchTweetsToShow.push({
-				// 			geolocation: tweet.coordinates,
-				// 			place: tweet.place,
-				// 			pubDate: tweet.created_at,
-				// 			id: tweet.id_str,
-				// 			content: tweet.text,
-				// 			author: tweet.user
-				// 		});
-				// 	});
-
-				// 	$.each(allSearchTweetsToShow, function (index, tweet) {
-				// 		if (tweet.geolocation) {
-				// 			
-				// 			map.addMarker({
-				// 				lng: tweet.geolocation.coordinates[0],
-				// 				lat: tweet.geolocation.coordinates[1],
-				// 				title: tweet.author.screen_name,
-				// 				infoWindow: {
-				// 					content: '<h5>@' + tweet.author.screen_name + '</h5><p>' + tweet.content + '</p><p>' + tweet.pubDate + '</p>'
-				// 				}
-				// 			});
-				// 		}
-				// 	})
-				// 	// console.log(allSearchTweetsToShow);
-				// 	//addTweetMarkers(allSearchTweetsToShow);
-				// });
-			//});
 
 	function helloUser () {
 		hello.on('auth.logout', function(auth){
@@ -157,7 +51,6 @@ var App = function () {
 
 	function searchTwitter () {
 
-			//
 			var searchTerm = $('#twitterSearchTerm').val();
 			if (searchTerm !== '') {
 
