@@ -32,7 +32,7 @@ var App = function () {
 			
 				// Inject it into the container
 				var navBarThumb = document.getElementById( "profile_"+ auth.network + "_thumb");
-				navBarThumb.innerHTML = "";
+				navBarThumb.innerHTML = "<li>Please log in first! </li>";
 				$("#btn_twitter").attr('onclick', 'hello("twitter").login()').attr('title', 'Login to Twitter');
 				$("#twitter_login").attr('class', 'fa fa-close');
 			});
@@ -42,7 +42,7 @@ var App = function () {
 				hello( auth.network ).api( '/me' ).then( function(r){
 					// Inject it into the container
 					var navBarThumb = document.getElementById( "profile_"+ auth.network + "_thumb");
-					navBarThumb.innerHTML = '<img src="'+ r.thumbnail +'" height="35" width="35" class="img-circle" />';
+					navBarThumb.innerHTML = '<li> Logged in :) </li><img src="'+ r.thumbnail +'" height="35" width="35" class="img-circle" />';
 					$("#btn_twitter").attr('onclick', 'hello("twitter").logout()').attr('title', 'Logout from Twitter');
 					$("#twitter_login").attr('class', 'fa fa-check');
 				});
