@@ -24,7 +24,7 @@ var App = function () {
 				facebook : '701500879937628',
 				twitter : 'A1W6ADU6674THULpB4IGtA64l',
 				oauth_proxy : 'https://auth-server.herokuapp.com/proxy'
-			},{redirect_uri:'http://127.0.0.1:9292/'});
+			},{redirect_uri:'http://http://socialheatmap.herokuapp.com//'});
 		}
 
 			//hello.on('auth.login', function(auth){
