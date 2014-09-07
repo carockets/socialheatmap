@@ -38,7 +38,11 @@
           </button>
           <a class="navbar-brand" href="#"><i class="fa fa-fire"></i> SocialHeatMap</a>
         </div>
-        <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <li><input id="twitterSearchTerm" type="text" class="navbar-btn form-control" placeholder="#Hashtag"></li>
+          <li><button id="submitTwitterSearch" class="btn btn-default navbar-btn" onclick="App.searchTweets();">Search</button></li>
+
+        </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="navbar-btn" id="profile_twitter_thumb"></li>
             <li>
@@ -46,10 +50,7 @@
                 <i class="fa fa-twitter"></i> twitter <i id="twitter_login" class=""></i>
               </button>
             </li>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Help</a></li>
+            <li><a href="#">About</a></li>
           </ul>
         </div>
       </div>
