@@ -36,12 +36,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">SocialHeatMap</a>
+          <a class="navbar-brand" href="#"><i class="fa fa-fire"></i> SocialHeatMap</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><button onclick="hello('twitter').login()" class="btn navbar-btn btn-twitter"><i class="fa fa-twitter"></i> twitter</button></li>
-            <li><button onclick="hello('facebook').login()" class="btn navbar-btn btn-fb"><i class="fa fa-facebook"></i> facebook</li>
+            <li class="navbar-btn" id="profile_twitter_thumb"></li>
+            <li>
+              <button type="button" onclick="hello('twitter').login()" class="btn navbar-btn btn-twitter" id="btn_twitter" data-toggle="tooltip" data-placement="bottom" title="">
+                <i class="fa fa-twitter"></i> twitter <i id="twitter_login" class=""></i>
+              </button>
+            </li>
             <li><a href="#">Dashboard</a></li>
             <li><a href="#">Settings</a></li>
             <li><a href="#">Profile</a></li>
@@ -53,6 +57,7 @@
 
     <div class="container-fluid">
       <div class="row">
+      <!-- ### Maybe possible Sidebar later ###
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">Overview</a></li>
@@ -61,8 +66,9 @@
             <li><a href="#">Export</a></li>
           </ul>
         </div>
-
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+        -->
+        <!-- ### if Sidebar is needed change cols and offsets ### -->
+        <div class="col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0">
           <div id="map" class="margin-bottom-40">
 
           </div>
@@ -80,6 +86,7 @@
     <script type="text/javascript" src="./js/jquery/jquery-migrate.js"></script>
     <script type="text/javascript" src="./js/angular/angular.js"></script>
     <script type="text/javascript" src="./js/bootstrap/bootstrap.js"></script>
+    <script type="text/javascript" src="./js/design.js"></script>
 
     <script type="text/javascript" src="./js/hello/hello.js"></script>
 
@@ -93,10 +100,14 @@
 
     <script>
         $(document).ready(function(){
+          //init optional Designs
+          Design.init();
           //init Application
           App.init();
           //init the map
           Maps.init();
+          //show tweets
+          //Maps.drawLocations(timelineTweets);
         });
     </script>
   </body>

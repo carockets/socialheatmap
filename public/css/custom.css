@@ -130,7 +130,7 @@ body {
 }
 
 .btn-twitter:hover {
-  background-color: transparent;
+  background-color: #fff;
   color: #46c0fb;
   border-style: solid;
   border-color: #46c0fb;
@@ -152,4 +152,16 @@ body {
 
 .navbar-btn{
   margin-left: 10px;
+}
+
+.navbar-inverse {
+  background-color: #ddd;
+}
+
+a.navbar-brand {
+  color: #F16745 !important;
+}
+
+a.navbar-brand:hover {
+  color: #fff !important;
 }
