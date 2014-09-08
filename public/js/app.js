@@ -52,8 +52,10 @@ var App = function () {
 	function searchTwitter () {
 
 			var searchTerm = $('#twitterSearchTerm').val();
-			if (searchTerm !== '') {
+			var loadIndicatorContainer = $('#load-indicator');
 
+			if (searchTerm !== '') {
+				loadIndicatorContainer.innerHTML = '<span>Loading results for ' + searchTerm + '<i class="fa fa-refresh fa-spin"></i></span>'
 				if(searchTerm.indexOf('@') == 0) {
 					console.log('getting user timeline');
 					hello('twitter').api('/statuses/user_timeline.json?screen_name=' + searchTerm.substring(1, searchTerm.length) + '&result_type=recent&count=100', function (json) {
@@ -95,7 +97,7 @@ var App = function () {
 
 				else if(searchTerm.indexOf('#') == 0) {
 					console.log('getting search tweets');
-					hello('twitter').api('/search/tweets.json?q=' + encodeURIComponent(searchTerm) + '&result_type=recent&count=100', function (json) {
+					hello('twitter').api('/search/tweets.json?q=' + encodeURIComponent(searchTerm) + '&result_type=recent&geocode=52.520007,13.404954,12400mi&count=100', function (json) {
 					// place for callback
 					// console.log(json);
 					}).then(function(tweets) {
@@ -130,6 +132,9 @@ var App = function () {
 						});
 					});
 				}
+
+				
+				loadIndicatorContainer.innerHTML = '<span>Done. Showing results for ' + searchTerm + '</span>'
 			}
 		}
 
