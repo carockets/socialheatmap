@@ -97,7 +97,7 @@ var App = function () {
 
 				else if(searchTerm.indexOf('#') == 0) {
 					console.log('getting search tweets');
-					hello('twitter').api('/statuses/filter.json?', 'post', '{location: -180,-90,180,90, track:"' + searchTerm.substring(1, searchTerm.length) + '"}' function (json) {
+					hello('twitter').api('/statuses/filter.json?', 'post', '{location: -180,-90,180,90, track:"' + searchTerm.substring(1, searchTerm.length) + '"}', function (json) {
 					// place for callback
 					// console.log(json);
 					}).then(function(tweets) {
