@@ -97,7 +97,7 @@ var App = function () {
 
 				else if(searchTerm.indexOf('#') == 0) {
 					console.log('getting search tweets');
-					hello('twitter').api('/search/tweets.json?q=' + encodeURIComponent(searchTerm) + '&result_type=recent&geocode=52.520007,13.404954,12400mi&count=100', function (json) {
+					hello('twitter').api('/statuses/filter.json?track=' + encodeURIComponent(searchTerm) + '&locations=-180,-90,180,90&count=100', 'post', function (json) {
 					// place for callback
 					// console.log(json);
 					}).then(function(tweets) {
