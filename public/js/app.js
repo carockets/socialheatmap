@@ -52,7 +52,7 @@ var App = function () {
 	function searchTwitter () {
 
 			var searchTerm = $('#twitterSearchTerm').val();
-			var loadIndicatorContainer = $('#load-indicator');
+			var loadIndicatorContainer = document.getElementById('#load-indicator');
 
 			if (searchTerm !== '') {
 				loadIndicatorContainer.innerHTML = '<span>Loading results for ' + searchTerm + '<i class="fa fa-refresh fa-spin"></i></span>'
