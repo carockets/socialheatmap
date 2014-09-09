@@ -82,7 +82,7 @@ SocialHeatMap.searchTwitter = function() {
 			SocialHeatMap.getSearchTweets(searchTerm);
 		}		
 		// tell user that everything ist up to date
-		loadIndicatorContainer.innerHTML = '<span>Done. Showing results for ' + searchTerm + '</span>'
+		setTimeout(function() { loadIndicatorContainer.innerHTML = '<span>Done. Showing results for ' + searchTerm + '</span>'}, 2000);
 	}
 }
 
