@@ -92,13 +92,12 @@ SocialHeatMap.getUserTimeline = function(screen_name) {
 		+ screen_name 
 		+ '&result_type=recent'
 		+ '&include_rts=false'
-		+ '&count=200', function (json) {
+		+ '&count=200', function (response) {
 			// place for callback
 			//console.log(json);
-	}).then(function(tweets) {
 
-		var processedTweets = SocialHeatMap.apiResponseToProcessedTweet(tweets);
-		Maps.drawMarkers(processedTweets);
+			var processedTweets = SocialHeatMap.apiResponseToProcessedTweet(response);
+			Maps.drawMarkers(processedTweets);
 	});
 }
 
@@ -109,7 +108,7 @@ SocialHeatMap.getSearchTweets = function(hastag) {
 	var api_request = '/search/tweets.json?q=' 
 		+ hastag
 		+ '&result_type=recent'
-		+ '&count=20';
+		+ '&count=100';
 
 	var current_request = api_request;
 
@@ -117,11 +116,9 @@ SocialHeatMap.getSearchTweets = function(hastag) {
 		hello('twitter').api( current_request, function (response) {
 			debugger;
 			// place for callback
-			console.log(current_request);
-			current_request = api_request + '&max_id=' + response.statuses[(response.statuses.length) - 1].id_str;
-			console.log(current_request);
+			//console.log(current_request);
 			processedTweets = processedTweets.concat(SocialHeatMap.apiResponseToProcessedTweet(response.statuses));
-			console.log(processedTweets);
+			// console.log(processedTweets);
 			Maps.drawMarkers(processedTweets);
 		});
 	
