@@ -27,17 +27,17 @@ SocialHeatMap.alreadyLoggedIn = function () {
 
 SocialHeatMap.helloInit = function () {
 
+	hello.init({ 
+	 	facebook : '701500879937628',
+	 	twitter : 'A1W6ADU6674THULpB4IGtA64l',
+	 	oauth_proxy : 'https://auth-server.herokuapp.com/proxy'
+	 },{redirect_uri:'http://socialheatmap.herokuapp.com//'});
+
 	// hello.init({ 
 	// 	facebook : '701500879937628',
 	// 	twitter : 'A1W6ADU6674THULpB4IGtA64l',
 	// 	oauth_proxy : 'https://auth-server.herokuapp.com/proxy'
-	// },{redirect_uri:'http://socialheatmap.herokuapp.com//'});
-
-	hello.init({ 
-		facebook : '701500879937628',
-		twitter : 'A1W6ADU6674THULpB4IGtA64l',
-		oauth_proxy : 'https://auth-server.herokuapp.com/proxy'
-	},{redirect_uri:'http://127.0.0.1:9292//'});
+	// },{redirect_uri:'http://127.0.0.1:9292//'});
 }
 
 SocialHeatMap.helloUser = function () {
@@ -67,7 +67,6 @@ SocialHeatMap.searchTwitter = function() {
 	var loadIndicatorContainer = document.getElementById('load-indicator');
 
 	if (searchTerm !== '') {
-		debugger;
 		map.removeMarkers();
 		// show user that request is sent
 		loadIndicatorContainer.innerHTML = '<span>Loading results for ' + searchTerm + ' <i class="fa fa-refresh fa-spin"></i></span>'
@@ -88,7 +87,7 @@ SocialHeatMap.searchTwitter = function() {
 }
 
 SocialHeatMap.getUserTimeline = function(screen_name) {
-	debugger;
+
 	hello('twitter').api('/statuses/user_timeline.json?screen_name=' 
 		+ screen_name 
 		+ '&result_type=recent'
@@ -105,32 +104,27 @@ SocialHeatMap.getUserTimeline = function(screen_name) {
 
 SocialHeatMap.getSearchTweets = function(hastag) {
 
-	var older_results = "";
+	var processedTweets = processedTweets || [];
 
-	hello('twitter').api('/search/tweets.json?q=' 
+	var api_request = '/search/tweets.json?q=' 
 		+ hastag
 		+ '&result_type=recent'
-		+ '&count=100', function (json) {
-			// place for callback
-			// console.log(json);
-	}).then(function(tweets) {
-		console.log(tweets);
+		+ '&count=20';
 
-		older_results = tweets.search_metadata.next_results;
+	var current_request = api_request;
 
-		var processedTweets = SocialHeatMap.apiResponseToProcessedTweet(tweets.statuses);
-
-		for (var i = 0; i < 10; i++) {
+	
+		hello('twitter').api( current_request, function (response) {
 			debugger;
-			hello('twitter').api('/search/tweets.json?' + older_results, function (json) {
-
-			}).then(function(tweets) {
-				older_results = tweets.search_metadata.next_results;
-				processedTweets = processedTweets.concat(SocialHeatMap.apiResponseToProcessedTweet(tweets.statuses));
-			});
-		}
-		console.log(processedTweets);
-	});
+			// place for callback
+			console.log(current_request);
+			current_request = api_request + '&max_id=' + response.statuses[(response.statuses.length) - 1].id_str;
+			console.log(current_request);
+			processedTweets = processedTweets.concat(SocialHeatMap.apiResponseToProcessedTweet(response.statuses));
+			console.log(processedTweets);
+			Maps.drawMarkers(processedTweets);
+		});
+	
 }
 
 SocialHeatMap.apiResponseToProcessedTweet = function(tweets) {
